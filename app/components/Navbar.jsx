@@ -1,23 +1,37 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect  } from "react";
+import { debounce } from "lodash";
 
 import { motion } from "framer-motion";
-
-import { Input } from "@nextui-org/react";
 
 import styles from "@/styles";
 import { navVariants } from "@/utils/motion";
 import { navLinks } from "@/constants";
 
 const SearchBar = ({ value, handleSearchChange }) => {
+  const [debouncedSearch, setDebouncedSearch] = useState(value);
+
+  useEffect(() => {
+    setDebouncedSearch(value);
+  }, [value]);
+
+  const debouncedHandleChange = debounce(() => {
+    handleSearchChange(debouncedSearch);
+  }, 500); // Set a debounce delay of 500ms
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setDebouncedSearch(value);
+    debouncedHandleChange();
+  };
+
   return (
     <input
-      key="search-bar"
       type="text"
       placeholder="Explore the World"
-      onChange={handleSearchChange}
-      value={value}
+      onChange={handleChange}
+      value={debouncedSearch}
       className="px-4 py-2 rounded-[32px] border-2 border-[#6A6A6A] focus:outline-none focus:border-gray-300 text-white md:flex hidden searchbar-gradient"
     />
   );
@@ -28,14 +42,7 @@ export default function Navbar() {
   const [searchInput, setSearchInput] = useState("");
 
   const handleChange = (e) => {
-    e.preventDefault()
     setSearchInput(e.target.value)
-    
-    if (searchInput.length > 0) {
-      navLinks.filter((nav) => {
-      return nav.title.match(searchInput);
-    });
-  }
   } 
 
   return (
@@ -72,18 +79,18 @@ export default function Navbar() {
           className="w-[24px] h-[24px] object-contain"
         />
         <div className={`${toggle ? 'flex' : 'hidden' } min-w-[150px] p-6 absolute flex-col sm:right-40 right-10 top-20 bg-[#121315] rounded-[24px] z-[100]`}>
-          {navLinks.map((nav, index) => (
-            <ul className="flex flex-1 flex-col justify-start mx-4 text-white font">
+          <ul className="flex flex-1 flex-col justify-start mx-4 text-white font">
+            {navLinks.map((nav, index) => (
               <li
-                key={index}
+                key={nav.id}
                 className={`font-normal font-poppins cursor-pointer text-[14px] leading-[17px] py-1/2 ${index === navLinks.length - 1 ? 'mb-0' : 'mb-5'}`}
               >
                 <a href={`#${nav.id}`}>
                   {nav.title}
                 </a>
               </li>
-            </ul>
-          ))}
+            ))}
+          </ul>
         </div>
       </div>
     </motion.nav>
