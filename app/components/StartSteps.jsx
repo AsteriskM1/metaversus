@@ -1,6 +1,6 @@
-import styles from "@/styles"
+import styles from '@/styles';
 
-export default function StartSteps({ number, text }) {
+const StartSteps = ({ number, text }) => {
   return (
     <div className={`${styles.flexCenter} flex-row`}>
       <div className={`${styles.flexCenter} w-[70px] h-[70px] rounded-[24px] bg-[#323f5d]`}>
@@ -11,3 +11,4 @@ export default function StartSteps({ number, text }) {
   )
 }
 
+export default StartSteps;

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import { fadeIn } from "@/utils/motion";
 
-export default function InsightCard({ imgUrl, title, subtitle, index }) {
+const InsightCard = ({ imgUrl, title, subtitle, index }) => {
   return (
     <motion.div
       variants={fadeIn('up', 'spring', index * 0.5, 1)}
@@ -30,6 +30,7 @@ export default function InsightCard({ imgUrl, title, subtitle, index }) {
         </div>
       </div>
     </motion.div>
-  )
+  );
 }
 
+export default InsightCard;

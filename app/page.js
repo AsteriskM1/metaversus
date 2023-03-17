@@ -1,7 +1,6 @@
 import { Footer, Navbar } from './components';
 import { About, Explore, Feedback, GetStarted, Hero, Insights, WhatsNew, World } from './sections';
 
-// Change the nav to only animate once in hero
 const Page = () => (
   <div className="bg-primary-black overflow-hidden">
     <Navbar />

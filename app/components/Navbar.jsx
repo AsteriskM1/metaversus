@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useEffect  } from "react";
-import { debounce } from "lodash";
+import { useState, useEffect } from 'react';
+import { debounce } from 'lodash';
 
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
-import styles from "@/styles";
-import { navVariants } from "@/utils/motion";
-import { navLinks } from "@/constants";
+import styles from '@/styles';
+import { navVariants } from '@/utils/motion';
+import { navLinks } from '@/constants';
 
 const SearchBar = ({ value, handleSearchChange }) => {
   const [debouncedSearch, setDebouncedSearch] = useState(value);
@@ -21,8 +21,8 @@ const SearchBar = ({ value, handleSearchChange }) => {
   }, 500); // Set a debounce delay of 500ms
 
   const handleChange = (e) => {
-    const value = e.target.value;
-    setDebouncedSearch(value);
+    const changeValue = e.target.value;
+    setDebouncedSearch(changeValue);
     debouncedHandleChange();
   };
 
@@ -37,13 +37,13 @@ const SearchBar = ({ value, handleSearchChange }) => {
   );
 };
 
-export default function Navbar() {
-  const [toggle, setToggle] = useState(false)
+const Navbar = () => {
+  const [toggle, setToggle] = useState(false);
   const [searchInput, setSearchInput] = useState("");
 
   const handleChange = (e) => {
-    setSearchInput(e.target.value)
-  } 
+    setSearchInput(e.target.value);
+  };
 
   return (
     <motion.nav
@@ -94,6 +94,7 @@ export default function Navbar() {
         </div>
       </div>
     </motion.nav>
-  )
+  );
 }
 
+export default Navbar;

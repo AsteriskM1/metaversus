@@ -1,16 +1,16 @@
 'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
-import { motion } from "framer-motion";
-import styles from "@/styles";
-import { fadeIn } from "@/utils/motion";
+import { motion } from 'framer-motion';
+import { Modal, Button, Text } from '@nextui-org/react';
 
-import { Modal, Button, Text } from "@nextui-org/react";
-import { worldDescription } from "@/constants";
+import styles from '@/styles';
+import { fadeIn } from '@/utils/motion';
 
+import { worldDescription } from '@/constants';
 
-export default function ExploreCard({ id, imgUrl, title, index, active, handleClick }) {
+const ExploreCard = ({ id, imgUrl, title, index, active, handleClick }) => {
   const [visible, setVisible] = useState(false);
   const handler = () => setVisible(true);
   const closeHandler = () => {
@@ -71,13 +71,12 @@ export default function ExploreCard({ id, imgUrl, title, index, active, handleCl
               <Modal.Body>
                 {worldDescription}
               </Modal.Body>
-              <Modal.Footer>
-              </Modal.Footer>
             </Modal>
           </div>
         </div>
       )}
     </motion.div>
-  )
+  );
 }
 
+export default ExploreCard;
