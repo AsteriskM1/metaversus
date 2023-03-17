@@ -35,6 +35,5 @@ export default function Explore() {
         </div>
       </motion.div>
     </section>
-  )
-}
-
+  );
+};

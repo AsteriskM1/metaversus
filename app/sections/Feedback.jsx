@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from "framer-motion";
 
 import styles from "@/styles";
@@ -33,7 +34,7 @@ export default function Feedback() {
           variants={fadeIn('left', 'tween', 0.2, 1)}
           className="relative flex-1 flex justify-center items-center"
         >
-          <img 
+          <Image
             src="/planet-09.png"
             alt="planet-09"
             className="w-full lg:h-[610px] h-auto min-h-[210px] object-cover rounded-[40px]"
@@ -43,7 +44,7 @@ export default function Feedback() {
             variants={zoomIn(0.4, 1)}
             className="lg:block hidden absolute -left-[10%] top-[3%]"
           >
-            <img 
+            <Image
               src="/stamp.png"
               alt="stamp"
               className="w-[155px] h-[155px] object-contain"
@@ -52,6 +53,5 @@ export default function Feedback() {
         </motion.div>
       </motion.div>
     </section>
-  )
-}
-
+  );
+};

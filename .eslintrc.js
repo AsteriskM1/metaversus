@@ -6,7 +6,6 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
-    'next',
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -18,13 +17,16 @@ module.exports = {
   plugins: [
     'react',
   ],
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   rules: {
-    'react/no-unescaped-entities': "off",
-    "@next/next/no-page-custom-font": "off",
+    'react/no-unescaped-entities': 0,
     'eslintreact/no-danger': 0,
     'react/jsx-max-props-per-line': 0,
     'react/jsx-first-prop-new-line': 0,
     'no-console': 0,
+    "eol-last": 0,
     'jsx-a11y/label-has-associated-control': 0,
     'no-nested-ternary': 0,
     'consistent-return': 0,
@@ -53,7 +55,7 @@ module.exports = {
       'error',
       {
         max: 1,
-        maxEOF: 1,
+        maxEOF: 0,
       },
     ],
     'no-underscore-dangle': [

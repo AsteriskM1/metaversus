@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { debounce } from 'lodash';
 
 import { motion } from 'framer-motion';
@@ -62,7 +63,7 @@ const Navbar = () => {
             handleSearchChange={handleChange} 
           />
           <div className="flex flex-row group md:border-2 md:rounded-[32px] justify-center items-center w-[60px] cursor-pointer">
-            <img
+            <Image
               src="/search.svg"
               alt="search"
               className="w-[24px] h-[24px] object-contain group-hover:"
@@ -72,13 +73,13 @@ const Navbar = () => {
         <div className="">
           <h2 className="font-extrabold text-[24px] left-96 leading-[30px] text-white">METAVERSUS</h2>
         </div>
-        <img 
+        <Image
           src={toggle ? "close.svg" : "/menu.svg"}
           alt="menu"
           onClick={() => setToggle((prev) => !prev)}
           className="w-[24px] h-[24px] object-contain"
         />
-        <div className={`${toggle ? 'flex' : 'hidden' } min-w-[150px] p-6 absolute flex-col sm:right-40 right-10 top-20 bg-[#121315] rounded-[24px] z-[100]`}>
+        <div className={`${toggle ? 'flex' : 'hidden'} min-w-[150px] p-6 absolute flex-col sm:right-40 right-10 top-20 bg-[#121315] rounded-[24px] z-[100]`}>
           <ul className="flex flex-1 flex-col justify-start mx-4 text-white font">
             {navLinks.map((nav, index) => (
               <li
@@ -95,6 +96,6 @@ const Navbar = () => {
       </div>
     </motion.nav>
   );
-}
+};
 
 export default Navbar;

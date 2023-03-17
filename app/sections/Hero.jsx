@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from "framer-motion";
 
 import styles from "@/styles";
@@ -35,7 +36,7 @@ export default function Hero() {
         >
           <div className="absolute w-full h-[300px] hero-gradient rounded-tl-[140px] z-[0] -top-[30px]" />
 
-          <img
+          <Image
             src="/cover.png"
             alt="hero_cover"
             className="w-full sm:h-[500px] h-[350px] object-cover rounded-tl-[140px] z-10 relative"
@@ -43,7 +44,7 @@ export default function Hero() {
 
           <a href="#explore">
             <div className="w-full flex justify-end sm:-mt-[70px] -mt-[50px] pr-[40px] relative z-10">
-              <img
+              <Image
                 src="/stamp.png"
                 alt="stamp"
                 className="sm:w-[155px] w-[100px] sm:h-[155px] h-[100px] object-contain"
@@ -53,6 +54,5 @@ export default function Hero() {
         </motion.div>
       </motion.div>
     </section>
-  )
-}
-
+  );
+};

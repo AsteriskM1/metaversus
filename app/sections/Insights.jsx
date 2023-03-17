@@ -30,6 +30,5 @@ export default function Insights() {
         </div>
       </motion.div>
     </section>
-  )
-}
-
+  );
+};
